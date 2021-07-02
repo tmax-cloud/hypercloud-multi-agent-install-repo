@@ -6,7 +6,7 @@ chmod a+x /usr/local/bin/jq
 export PROMETHEUS_VERSION=v2.11.0
 export PROMETHEUS_OPERATOR_VERSION=v0.34.0
 export NODE_EXPORTER_VERSION=v0.18.1
-export GRAFANA_VERSION=6.4.3
+##export GRAFANA_VERSION=6.4.3
 export KUBE_STATE_METRICS_VERSION=v1.8.0
 export CONFIGMAP_RELOADER_VERSION=v0.34.0
 export CONFIGMAP_RELOAD_VERSION=v0.0.1
@@ -16,7 +16,7 @@ export ALERTMANAGER_VERSION=v0.20.0
 
 ## set version
 sed -i 's/{ALERTMANAGER_VERSION}/'${ALERTMANAGER_VERSION}'/g' yaml/manifests/alertmanager-alertmanager.yaml
-sed -i 's/{GRAFANA_VERSION}/'${GRAFANA_VERSION}'/g' yaml/manifests/grafana-deployment.yaml
+##sed -i 's/{GRAFANA_VERSION}/'${GRAFANA_VERSION}'/g' yaml/manifests/grafana-deployment.yaml
 sed -i 's/{KUBE_RBAC_PROXY_VERSION}/'${KUBE_RBAC_PROXY_VERSION}'/g' yaml/manifests/kube-state-metrics-deployment.yaml
 sed -i 's/{KUBE_STATE_METRICS_VERSION}/'${KUBE_STATE_METRICS_VERSION}'/g' yaml/manifests/kube-state-metrics-deployment.yaml
 sed -i 's/{NODE_EXPORTER_VERSION}/'${NODE_EXPORTER_VERSION}'/g' yaml/manifests/node-exporter-daemonset.yaml
@@ -33,8 +33,8 @@ sleep 30s
 
 ## step2: apply manifests
 kubectl create -f yaml/manifests/
-kubectl get svc -n monitoring prometheus-k8s -o yaml | sed "s|type: NodePort|type: LoadBalancer|g" | kubectl replace -f -
-kubectl get svc -n monitoring grafana -o yaml | sed "s|type: ClusterIP|type: LoadBalancer|g" | kubectl replace -f -
+##kubectl get svc -n monitoring prometheus-k8s -o yaml | sed "s|type: NodePort|type: LoadBalancer|g" | kubectl replace -f -
+##kubectl get svc -n monitoring grafana -o yaml | sed "s|type: ClusterIP|type: LoadBalancer|g" | kubectl replace -f -
 
 kubectl get prometheus k8s -n monitoring -o json | jq 'del(.spec.storage)' > prometheus-k8s.json
 kubectl delete prometheus k8s -n monitoring
