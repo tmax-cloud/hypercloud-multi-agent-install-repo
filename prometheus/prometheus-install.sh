@@ -69,4 +69,3 @@ for i in "${pods[@]}"
 do
    kubectl label pod $i  -n kube-system  k8s-app=kube-controller-manager --overwrite
 done
-~               
