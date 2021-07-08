@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /installer
 
 chmod +x kubectl-bin/kubectl.sh
