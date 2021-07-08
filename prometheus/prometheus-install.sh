@@ -15,7 +15,7 @@ export PROMETHEUS_ADAPTER_VERSION=v0.5.0
 export ALERTMANAGER_VERSION=v0.20.0
 
 ## set version
-sed -i 's/{ALERTMANAGER_VERSION}/'${ALERTMANAGER_VERSION}'/g' yaml/manifests/alertmanager-alertmanager.yaml
+##sed -i 's/{ALERTMANAGER_VERSION}/'${ALERTMANAGER_VERSION}'/g' yaml/manifests/alertmanager-alertmanager.yaml
 ##sed -i 's/{GRAFANA_VERSION}/'${GRAFANA_VERSION}'/g' yaml/manifests/grafana-deployment.yaml
 sed -i 's/{KUBE_RBAC_PROXY_VERSION}/'${KUBE_RBAC_PROXY_VERSION}'/g' yaml/manifests/kube-state-metrics-deployment.yaml
 sed -i 's/{KUBE_STATE_METRICS_VERSION}/'${KUBE_STATE_METRICS_VERSION}'/g' yaml/manifests/kube-state-metrics-deployment.yaml
