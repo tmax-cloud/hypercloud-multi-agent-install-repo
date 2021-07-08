@@ -67,5 +67,4 @@ pods=($(kubectl get pod -n kube-system  | grep kube-controller-manager | awk '{p
 for i in "${pods[@]}"
 do
    kubectl label pod $i  -n kube-system  k8s-app=kube-controller-manager --overwrite
-done
-~               
+done     
