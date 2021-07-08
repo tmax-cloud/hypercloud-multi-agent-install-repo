@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /installer
+cd /install-prometheus
 
 chmod +x kubectl-bin/kubectl.sh
 ./kubectl-bin/kubectl.sh
